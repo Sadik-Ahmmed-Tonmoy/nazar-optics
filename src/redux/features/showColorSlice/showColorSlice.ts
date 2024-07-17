@@ -1,27 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface showColorState {
-  value: boolean;
+export interface ShowColorState {
+  items: { [id: string]: boolean };
 }
 
-const initialState: showColorState = {
-  value: false,
+const initialState: ShowColorState = {
+  items: {},
 };
 
 export const showColorSlice = createSlice({
   name: "showColor",
   initialState,
   reducers: {
-    showColor: (state) => {
-      state.value = true;
+    showColor: (state, action: PayloadAction<string>) => {
+      state.items[action.payload] = true;
     },
-    hideColor: (state) => {
-      state.value = false;
+    hideColor: (state, action: PayloadAction<string>) => {
+      state.items[action.payload] = false;
     },
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { showColor, hideColor } = showColorSlice.actions;
-
 export default showColorSlice.reducer;
