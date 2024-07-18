@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/lib/Providers/StoreProvider";
+import Navbar from "@/components/shared/Navbar/Navbar";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -14,7 +15,9 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   return (
     <html lang="en">
       <body className={outfit.className}  suppressHydrationWarning={true}>
-        <StoreProvider>{children}</StoreProvider>
+        <StoreProvider>
+        <Navbar/>
+          {children}</StoreProvider>
       </body>
     </html>
   );

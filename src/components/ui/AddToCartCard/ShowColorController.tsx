@@ -1,12 +1,12 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { RootState } from "@/redux/store";
-import Image from "next/image";
-import StarRatingReadOnly from "../StarRatingReadOnly";
-import { IoClose } from "react-icons/io5";
 import { hideColor } from "@/redux/features/showColorSlice/ShowColorSlice";
+import { RootState } from "@/redux/store";
+import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import { IoClose, IoEyeOutline } from "react-icons/io5";
+import { FaHeart, FaRegHeart } from "react-icons/fa6";
 
 const ShowColorController = ({ id, children }: { id: string; children: React.ReactNode }) => {
   const fakeColorCount = [
@@ -22,8 +22,9 @@ const ShowColorController = ({ id, children }: { id: string; children: React.Rea
   ];
   const isShowColor = useAppSelector((state: RootState) => state.showColor.items[id]);
   const dispatch = useAppDispatch();
+  const [isSideOptionsVisible, setIsSideOptionsVisible] = useState(false);
   return (
-    <>
+    <div onMouseEnter={() => setIsSideOptionsVisible(true)} onMouseLeave={() => setIsSideOptionsVisible(false)} className="relative">
       {isShowColor ? (
         <div>
           <div className="border-b-2 py-[8px] px-4 flex justify-between">
@@ -55,7 +56,22 @@ const ShowColorController = ({ id, children }: { id: string; children: React.Rea
       ) : (
         <>{children}</>
       )}
-    </>
+
+      {/* side options start */}
+      {isSideOptionsVisible && (
+        <div
+          className={`absolute top-2/4 right-0 flex flex-col bg-opacity-15 bg-black rounded-ss-md rounded-es-md overflow-hidden hover:cursor-pointer`}
+        >
+          <div className="p-2">
+            <FaRegHeart className="text-[#00a76b] hover:scale-110 transition-all duration-200" size={20} />
+          </div>
+          <div className="p-2 border-t-2 border-b-2">
+            <IoEyeOutline className="text-[#00a76b] hover:scale-110 transition-all duration-200" size={20} />
+          </div>
+        </div>
+      )}
+      {/* side options end */}
+    </div>
   );
 };
 
