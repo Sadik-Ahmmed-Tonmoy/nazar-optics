@@ -5,12 +5,17 @@ import { decrement, increment } from "@/redux/features/counter/counterSlice";
 import { hideColor, showColor } from "@/redux/features/showColorSlice/ShowColorSlice";
 import { RootState } from "@/redux/store";
 import React from "react";
+import {Button, Calendar} from "@nextui-org/react";
+import {parseDate} from '@internationalized/date';
 
 const ReduxTest = () => {
   const count = useAppSelector((state: RootState) => state.counter.value);
   const isShowColor = useAppSelector((state: RootState) => state.showColor.value);
   const dispatch = useAppDispatch();
   return (
+    <>
+    
+    
     <div>
       redux test
       <div>
@@ -37,6 +42,13 @@ const ReduxTest = () => {
         </div>
       </div>
     </div>
+    
+    
+    
+    <Button color="primary">
+      Button
+    </Button>
+    </>
   );
 };
 

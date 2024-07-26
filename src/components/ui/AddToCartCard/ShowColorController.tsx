@@ -31,7 +31,7 @@ const ShowColorController = ({ id, children }: { id: string; children: React.Rea
             <p className="font-semibold">Select A Color</p>
             <IoClose onClick={() => dispatch(hideColor(id))} size={25} className="hover:cursor-pointer" />
           </div>
-          <div className=" p-3 bg-red  h-[253px]">
+          <div className=" p-3 bg-red  h-[224px]">
             <div className="grid grid-cols-8 gap-3 ">
               {fakeColorCount.map((item) => (
                 <div key={item} className={`w-8 h-8 rounded-full overflow-hidden relative ${item}`}>
@@ -63,10 +63,10 @@ const ShowColorController = ({ id, children }: { id: string; children: React.Rea
           className={`absolute top-2/4 right-0 flex flex-col bg-opacity-15 bg-black rounded-ss-md rounded-es-md overflow-hidden hover:cursor-pointer`}
         >
           <div className="p-2">
-            <FaRegHeart className="text-[#00a76b] hover:scale-110 transition-all duration-200" size={20} />
+            <FaRegHeart className="text-[#00a76b] hover:scale-[1.15] transition-all duration-200" size={20} />
           </div>
           <div className="p-2 border-t-2 border-b-2">
-            <IoEyeOutline className="text-[#00a76b] hover:scale-110 transition-all duration-200" size={20} />
+            <IoEyeOutline className="text-[#00a76b] hover:scale-[1.2] transition-all duration-200" size={20} />
           </div>
         </div>
       )}
