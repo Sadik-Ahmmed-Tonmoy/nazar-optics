@@ -1,9 +1,10 @@
 import React from 'react';
+import { RegisterWithEmail } from './RegisterWithEmail';
 
 const RegisterPage = () => {
     return (
         <div>
-            RegisterPage
+            <RegisterWithEmail/>
         </div>
     );
 };

@@ -1,3 +1,4 @@
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import MyContainer from "@/components/ui/MyContainer/MyContainer";
 import React from "react";
 
@@ -17,7 +18,7 @@ const Navbar = () => {
         <p>login</p>
         <p>login</p>
         <p>login</p>
-        <p>login</p>
+        <ThemeSwitcher />
       </div>
     </div>
 

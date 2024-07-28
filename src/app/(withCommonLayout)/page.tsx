@@ -8,11 +8,12 @@ const HomePage = () => {
   return (
     <>
       <MyContainer className="grid grid-cols-4 gap-10">
-        <ThemeSwitcher />
+      
         {fakeCardCount.map((item) => (
           <AddToCartCard key={item} id={item.toString()} />
         ))}
       </MyContainer>
+      
     </>
   );
 };
